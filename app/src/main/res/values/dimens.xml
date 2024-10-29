@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="indent_icon_to_text">8dp</dimen>
+    <dimen name="standart_textsize">22sp</dimen>
+    <dimen name="indent_from_edge">16dp</dimen>
+    <dimen name="little_textsize">16sp</dimen>
+    <dimen name="indent_from_edges_vertical">21dp</dimen>
+</resources>
