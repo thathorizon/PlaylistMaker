@@ -12,8 +12,8 @@ class SettingsActivity : AppCompatActivity() {
         val buttonBack = findViewById<ImageView>(R.id.arrow_back_light)
 
         buttonBack.setOnClickListener {
-            val homeDisplayIntent = Intent(this, MainActivity::class.java)
-            startActivity(homeDisplayIntent)
+            Intent(this, MainActivity::class.java)
+            finish()
         }
 
     }

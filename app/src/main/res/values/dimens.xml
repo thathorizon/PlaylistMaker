@@ -5,4 +5,5 @@
     <dimen name="indent_from_edge">16dp</dimen>
     <dimen name="little_textsize">16sp</dimen>
     <dimen name="indent_from_edges_vertical">21dp</dimen>
+    <dimen name="cornerRadiusButtons">16dp</dimen>
 </resources>
