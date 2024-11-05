@@ -4,8 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    style="@style/ColorOfBackgroundMainDisplay">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,19 +21,16 @@
         android:id="@+id/search"
         android:text="@string/Search"
         app:icon="@drawable/search_light"
-        style="@style/ButtonStyleOnMainDisplay"
-        />
+        style="@style/ButtonStyleOnMainDisplay"/>
     <Button
         android:id="@+id/media"
         android:text="@string/Media"
         app:icon="@drawable/media_light"
-        style="@style/ButtonStyleOnMainDisplay"
-        />
+        style="@style/ButtonStyleOnMainDisplay"/>
     <Button
         android:id="@+id/settings"
         android:layout_marginBottom="28dp"
         android:text="@string/Settings"
         app:icon="@drawable/settings_light"
-        style="@style/ButtonStyleOnMainDisplay"
-        />
+        style="@style/ButtonStyleOnMainDisplay"/>
 </LinearLayout>
