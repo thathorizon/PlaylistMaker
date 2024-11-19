@@ -9,4 +9,5 @@
     <color name="switch_thumb_inactive_color">#AEAFB4</color>
     <color name="trackTintForSwitchNight">#9FBBF3</color>
     <color name="trackTintForSwitchDay">#E6E8EB</color>
+    <color name="grey">#99A2AD</color>
 </resources>
