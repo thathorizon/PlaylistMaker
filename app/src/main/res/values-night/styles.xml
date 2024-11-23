@@ -17,10 +17,10 @@
         <item name="fontFamily">@font/ys_display_medium</item>
         <item name="android:textFontWeight">500</item>
     </style>
+
     <style name="ColorOfBackgroundMainDisplay">
         <item name="android:background">@color/black2</item>
     </style>
-
 
     <style name="SettingsDisplayTextes">
         <item name="android:layout_width">wrap_content</item>
@@ -32,6 +32,7 @@
         <item name="fontFamily">@font/ys_display_regular</item>
         <item name="android:textFontWeight">400</item>
     </style>
+
     <style name="SettingsDisplayImages">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -41,13 +42,16 @@
         <item name="android:layout_marginBottom">18dp</item>
         <item name="android:tint">@color/white</item>
     </style>
+
     <style name="FrameLayoutSettingsDisplay">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">61dp</item>
     </style>
+
     <style name="ColorOfBackgroundSettingsDisplay">
         <item name="android:background">@color/black2</item>
     </style>
+
     <style name="StyleOfMainTextOnSettingsDisplay">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -59,6 +63,7 @@
         <item name="android:textFontWeight">500</item>
         <item name="android:textColor">@color/white</item>
     </style>
+
     <style name="StyleOfArrowBackSettingsDisplay">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -66,6 +71,7 @@
         <item name="android:layout_marginVertical">16dp</item>
         <item name="android:tint">@color/white</item>
     </style>
+
     <style name="StyleForSwitch">
         <item name="android:layout_width">56dp</item>
         <item name="android:layout_height">48dp</item>
@@ -76,7 +82,8 @@
         <item name="trackTint">@color/trackTintForSwitchNight</item>
         <item name="thumbTint">@color/switch_thumb_color</item>
     </style>
-    <style name="SettingsDisplayInputText">
+
+    <style name="SearchDisplayInputText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">36dp</item>
         <item name="android:layout_marginHorizontal">@dimen/indent_from_edge</item>
@@ -95,6 +102,7 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:importantForAutofill">no</item>
     </style>
+
     <style name="ButtonStyleClearInputText">
         <item name="android:layout_width">12dp</item>
         <item name="android:layout_height">12dp</item>
@@ -103,5 +111,18 @@
         <item name="android:layout_marginEnd">30dp</item>
         <item name="android:backgroundTint">@color/white2</item>
         <item name="tint">@color/black2</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="AppNameOnMainDisplay">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/indent_from_edge</item>
+        <item name="android:layout_marginTop">14dp</item>
+        <item name="android:layout_marginBottom">24dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/standart_textsize</item>
+        <item name="android:fontFamily">@font/ys_display_medium</item>
+        <item name="android:textFontWeight">500</item>
     </style>
 </resources>

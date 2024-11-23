@@ -22,10 +22,11 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="52dp">
+
         <EditText
             android:id="@+id/search_input_text"
-            android:hint="@string/Search"
-            style="@style/SettingsDisplayInputText">
+            style="@style/SearchDisplayInputText"
+            android:hint="@string/Search">
         </EditText>
         <ImageView
             android:id="@+id/buttonClearInputText"

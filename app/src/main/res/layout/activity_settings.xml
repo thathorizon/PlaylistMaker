@@ -22,13 +22,13 @@
     </FrameLayout>
     <FrameLayout
         android:layout_marginTop="24dp"
-        tools:ignore="UseSwitchCompatOrMaterialXml"
         style="@style/FrameLayoutSettingsDisplay">
         <TextView
             android:text="@string/Dark_theme"
             style="@style/SettingsDisplayTextes">
         </TextView>
-        <Switch style="@style/StyleForSwitch">
+        <Switch
+            style="@style/StyleForSwitch">
         </Switch>
     </FrameLayout>
     <FrameLayout
