@@ -22,7 +22,7 @@ class SettingsActivity : AppCompatActivity() {
             shareIntent.action = Intent.ACTION_SEND
             shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.link_to_the_course))
             shareIntent.type = "text/plain"
-            startActivity(Intent.createChooser(shareIntent, "Send to:"))
+            startActivity(Intent.createChooser(shareIntent, getString(R.string.send_to)))
         }
 
         val writeToSupport = findViewById<ImageView>(R.id.writeToSupport)

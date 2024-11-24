@@ -104,14 +104,15 @@
     </style>
 
     <style name="ButtonStyleClearInputText">
-        <item name="android:layout_width">12dp</item>
-        <item name="android:layout_height">12dp</item>
-        <item name="android:layout_marginVertical">20dp</item>
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_marginVertical">14dp</item>
         <item name="android:layout_gravity">end</item>
-        <item name="android:layout_marginEnd">30dp</item>
+        <item name="android:layout_marginEnd">24dp</item>
         <item name="android:backgroundTint">@color/white2</item>
         <item name="tint">@color/black2</item>
         <item name="android:visibility">gone</item>
+        <item name="iconPadding">8dp</item>
     </style>
 
     <style name="AppNameOnMainDisplay">

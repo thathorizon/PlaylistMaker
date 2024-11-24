@@ -30,7 +30,7 @@
         </EditText>
         <ImageView
             android:id="@+id/buttonClearInputText"
-            android:src="@drawable/baseline_clear_12"
+            android:src="@drawable/baseline_clear_16"
             style="@style/ButtonStyleClearInputText">
         </ImageView>
     </FrameLayout>

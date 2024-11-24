@@ -23,6 +23,10 @@ class SearchActivity : AppCompatActivity() {
         }
 
         val inputEditText = findViewById<EditText>(R.id.search_input_text)
+        if (valueTextInput != "") {
+        inputEditText.setText(valueTextInput)
+        }
+
         val clearButton = findViewById<ImageView>(R.id.buttonClearInputText)
 
         clearButton.setOnClickListener {
