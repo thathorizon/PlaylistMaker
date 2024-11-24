@@ -4,119 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".SettingsActivity">
+    tools:context=".SettingsActivity"
+    style="@style/ColorOfBackgroundSettingsDisplay">
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="56dp">
     <ImageView
         android:id="@+id/arrow_back_light"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/indent_from_edge"
-        android:layout_marginVertical="16dp"
-        android:src="@drawable/arrow_back_light">
+        android:src="@drawable/arrow_back_light"
+        style="@style/StyleOfArrowBackSettingsDisplay">
     </ImageView>
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginBottom="16dp"
         android:text="@string/Settings"
-        android:textColor="@color/black"
-        android:textSize="@dimen/standart_textsize"
-        >
+        style="@style/StyleOfMainTextOnSettingsDisplay">
     </TextView>
     </FrameLayout>
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="61dp"
         android:layout_marginTop="24dp"
-        tools:ignore="UseSwitchCompatOrMaterialXml">
+        style="@style/FrameLayoutSettingsDisplay">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/indent_from_edge"
-            android:layout_marginVertical="@dimen/indent_from_edges_vertical"
             android:text="@string/Dark_theme"
-            android:textColor="@color/black"
-            android:textSize="@dimen/little_textsize">
+            style="@style/SettingsDisplayTextes">
         </TextView>
         <Switch
-            android:layout_width="56dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="11dp"
-            android:layout_marginEnd="6dp"
-            android:layout_gravity="end">
+            style="@style/StyleForSwitch">
         </Switch>
     </FrameLayout>
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="61dp">
+        style="@style/FrameLayoutSettingsDisplay">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/indent_from_edge"
-            android:layout_marginVertical="@dimen/indent_from_edges_vertical"
             android:text="@string/Share_app"
-            android:textColor="@color/black"
-            android:textSize="@dimen/little_textsize">
+            style="@style/SettingsDisplayTextes">
         </TextView>
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginEnd="12dp"
-            android:layout_marginTop="19dp"
-            android:layout_marginBottom="18dp"
-            android:src="@drawable/share_app_light">
+            android:id="@+id/shareApp"
+            android:src="@drawable/share_app_light"
+            style="@style/SettingsDisplayImages">
         </ImageView>
     </FrameLayout>
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="61dp">
+        style="@style/FrameLayoutSettingsDisplay">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/indent_from_edge"
-            android:layout_marginVertical="@dimen/indent_from_edges_vertical"
             android:text="@string/write_to_support"
-            android:textColor="@color/black"
-            android:textSize="@dimen/little_textsize">
+            style="@style/SettingsDisplayTextes">
         </TextView>
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginEnd="12dp"
-            android:layout_marginTop="19dp"
-            android:layout_marginBottom="18dp"
-            android:src="@drawable/write_to_support_light">
+            android:id="@+id/writeToSupport"
+            android:src="@drawable/write_to_support_light"
+            style="@style/SettingsDisplayImages">
         </ImageView>
     </FrameLayout>
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="61dp">
+        style="@style/FrameLayoutSettingsDisplay">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/indent_from_edge"
-            android:layout_marginVertical="@dimen/indent_from_edges_vertical"
             android:text="@string/user_agreement"
-            android:textColor="@color/black"
-            android:textSize="@dimen/little_textsize">
+            style="@style/SettingsDisplayTextes">
         </TextView>
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginEnd="12dp"
-            android:layout_marginTop="19dp"
-            android:layout_marginBottom="18dp"
-            android:src="@drawable/arrow_forward_light">
+            android:id="@+id/userAgreement"
+            android:src="@drawable/arrow_forward_light"
+            style="@style/SettingsDisplayImages">
         </ImageView>
     </FrameLayout>
 </LinearLayout>

@@ -5,4 +5,9 @@
     <color name="background_color">#3772E7</color>
     <color name="black2">#1A1B22</color>
     <color name="white2">#AEAFB4</color>
+    <color name="switch_thumb_active_color">#3772E7</color>
+    <color name="switch_thumb_inactive_color">#AEAFB4</color>
+    <color name="trackTintForSwitchNight">#9FBBF3</color>
+    <color name="trackTintForSwitchDay">#E6E8EB</color>
+    <color name="grey">#99A2AD</color>
 </resources>

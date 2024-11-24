@@ -1,11 +1,17 @@
 <resources>
     <string name="app_name" translatable="false">Playlist Maker</string>
-    <string name="title_hello" translatable="false">Привет, Практикум</string>
-    <string name="Search" translatable="false">Поиск</string>
-    <string name="Media" translatable="false">Медиатека</string>
-    <string name="Settings" translatable="false">Настройки</string>
-    <string name="Dark_theme" translatable="false">Темная тема</string>
-    <string name="Share_app" translatable="false">Поделиться приложением</string>
-    <string name="write_to_support" translatable="false">Написать в поддержку</string>
-    <string name="user_agreement" translatable="false">Пользовательское соглашение</string>
+    <string name="title_hello">Привет, Практикум</string>
+    <string name="Search">Поиск</string>
+    <string name="Media">Медиатека</string>
+    <string name="Settings">Настройки</string>
+    <string name="Dark_theme">Темная тема</string>
+    <string name="Share_app">Поделиться приложением</string>
+    <string name="write_to_support">Написать в поддержку</string>
+    <string name="user_agreement">Пользовательское соглашение</string>
+    <string name="subject_text">Сообщение разработчикам и разработчицам приложения Playlist Maker</string>
+    <string name="message_text">Спасибо разработчикам и разработчицам за крутое приложение!</string>
+    <string name="link_to_the_course" translatable="false">https://practicum.yandex.ru/profile/android-developer</string>
+    <string name="email_adress" translatable="false">kirvart@yandex.ru</string>
+    <string name="offer" translatable="false">https://yandex.ru/legal/practicum_offer</string>
+    <string name="send_to">Отправить по адресу:</string>
 </resources>
