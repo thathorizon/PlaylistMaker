@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/trackLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MainLinearHorizontalOnSearchDisplay">
+    <ImageView
+        android:id="@+id/album_cover"
+        style="@style/AlbumCoverStyle">
+    </ImageView>
+    <LinearLayout style="@style/LinearVerticalOnSearchDisplay">
+            <TextView
+                android:id="@+id/song_name"
+                tools:text="Smells Like Teen Spirit"
+                style="@style/SongNameStyle">
+            </TextView>
+            <LinearLayout style="@style/LittleLinearHorizontalOnSearchDisplay">
+                <TextView
+                    android:id="@+id/author_of_song"
+                    tools:text="Nirvana"
+                    style="@style/AuthorOfSongStyle">
+                </TextView>
+                <ImageView
+                    android:src="@drawable/ellipse"
+                    style="@style/DotStyle">
+                </ImageView>
+                <TextView
+                    android:id="@+id/duration_of_song"
+                    tools:text="5:01"
+                    style="@style/DurationOfSongStyle">
+                </TextView>
+            </LinearLayout>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/full_information"
+        android:src="@drawable/arrow_forward_light"
+        style="@style/FullInformationStyle">
+    </ImageView>
+</LinearLayout>
