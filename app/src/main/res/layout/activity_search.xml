@@ -27,6 +27,8 @@
         <EditText
             android:id="@+id/search_input_text"
             style="@style/SearchDisplayInputText"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
             android:hint="@string/Search">
         </EditText>
         <ImageView
@@ -39,6 +41,40 @@
         android:id="@+id/rvTracks"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/track_item"
-        tools:itemCount="6"
+        tools:itemCount="16"
+        android:visibility="gone"
         style="@style/RVStyleOnSearchDisplay"/>
+    <LinearLayout
+        android:id="@+id/nothingFound"
+        android:visibility="gone"
+        style="@style/LinearStyleOfSearchDisplay">
+        <ImageView
+            android:src="@drawable/nothing_found"
+            style="@style/ImageStyleOnSearchDisplay">
+        </ImageView>
+        <TextView
+            android:text="@string/nothing_found"
+            style="@style/ProblemsTextStyleOnSearchDisplay">
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/somethingWentWrong"
+        android:visibility="gone"
+        style="@style/LinearStyleOfSearchDisplay">
+        <ImageView
+            android:src="@drawable/something_went_wrong"
+            style="@style/ImageStyleOnSearchDisplay">
+        </ImageView>
+        <TextView
+            android:text="@string/something_went_wrong"
+            style="@style/ProblemsTextStyleOnSearchDisplay">
+        </TextView>
+        <Button
+            android:id="@+id/buttonRefresh"
+            app:cornerRadius="54dp"
+            android:text="@string/refresh"
+            style="@style/ButtonRefreshStyleOnSearchDisplay">
+        </Button>
+    </LinearLayout>
 </LinearLayout>
+

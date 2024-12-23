@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 class TracksAdapter (
-    private val data: List<Track>
+    private val track: List<Track>
 ) : RecyclerView.Adapter<TracksViewHolder> () {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TracksViewHolder {
@@ -14,10 +14,10 @@ class TracksAdapter (
     }
 
     override fun onBindViewHolder(holder: TracksViewHolder, position: Int) {
-        holder.bind(data[position])
+        holder.bind(track[position])
     }
 
     override fun getItemCount(): Int {
-        return data.size
+        return track.size
     }
 }

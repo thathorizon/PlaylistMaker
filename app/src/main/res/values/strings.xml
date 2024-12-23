@@ -14,4 +14,7 @@
     <string name="email_adress" translatable="false">kirvart@yandex.ru</string>
     <string name="offer" translatable="false">https://yandex.ru/legal/practicum_offer</string>
     <string name="send_to">Отправить по адресу:</string>
+    <string name="nothing_found">Ничего не нашлось</string>
+    <string name="something_went_wrong">Проблемы со связью\n\nЗагрузка не удалась. Проверьте\nподключение к интернету</string>
+    <string name="refresh">Обновить</string>
 </resources>

@@ -1,21 +1,59 @@
 package com.example.playlistmaker
 
+
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
 
 class SearchActivity : AppCompatActivity() {
+
+    private lateinit var buttonRefresh: Button
+    private lateinit var tracksList: RecyclerView
+    private lateinit var linearLayoutNothingFound: LinearLayout
+    private lateinit var linearLayoutSomethingWentWrong: LinearLayout
+    private val tracks = ArrayList<Track>()
+    private val adapter = TracksAdapter(tracks)
+    private val itunesBaseUrl = "https://itunes.apple.com"
+
+
+
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
+
+        val retrofit = Retrofit.Builder()
+            .baseUrl(itunesBaseUrl)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+         val iTunesAPISearchService = retrofit.create(ITunesAPI::class.java)
+
+
+        linearLayoutNothingFound = findViewById(R.id.nothingFound)
+        linearLayoutSomethingWentWrong = findViewById(R.id.somethingWentWrong)
+        tracksList = findViewById(R.id.rvTracks)
+        buttonRefresh = findViewById(R.id.buttonRefresh)
+        tracksList.adapter = adapter
 
         val buttonBack = findViewById<ImageView>(R.id.arrow_back_light)
         buttonBack.setOnClickListener {
@@ -29,10 +67,12 @@ class SearchActivity : AppCompatActivity() {
         }
 
         val clearButton = findViewById<ImageView>(R.id.buttonClearInputText)
-
         clearButton.setOnClickListener {
             inputEditText.setText("")
             inputEditText.hideKeyboard()
+            tracksList.removeAllViews()
+            adapter.notifyDataSetChanged()
+            allViewsVisibleGone()
         }
 
         val textWatcher = object : TextWatcher {
@@ -45,19 +85,56 @@ class SearchActivity : AppCompatActivity() {
                 if (savedInstanceState != null) {
                     valueTextInput = savedInstanceState.getString(TEXT_INPUT, DEFAULT_TEXT_INPUT)
                 }
+
+                inputEditText.setOnEditorActionListener { _, actionId, _ ->
+                    if (actionId == EditorInfo.IME_ACTION_DONE) {
+                        if (inputEditText.text.isNotEmpty()) {
+                            iTunesAPISearchService.search(inputEditText.text.toString()).enqueue(object : Callback<TracksResponse> {
+                                override fun onResponse(
+                                    call: Call<TracksResponse>,
+                                    response: Response<TracksResponse>) {
+                                    if (response.code() == 200) {
+                                        tracks.clear()
+                                        if (response.body()?.results?.isNotEmpty() == true) {
+                                            onlyTracksListVisible()
+                                            tracks.clear()
+                                            tracksList.removeAllViews()
+                                            tracks.addAll(response.body()?.results!!)
+                                            adapter.notifyDataSetChanged()
+                                        }
+                                        if (tracks.isEmpty()) {
+                                            onlyLinearLayoutNothingFoundVisible()
+                                        }
+                                    } else {
+                                        onlyLinearLayoutSomethingWentWrongVisible()
+                                        buttonRefresh.setOnClickListener{
+                                            onlyTracksListVisible()
+                                            onRestart()
+                                        }
+                                    }
+                                }
+
+                                override fun onFailure(call: Call<TracksResponse>, t: Throwable) {
+                                    onlyLinearLayoutSomethingWentWrongVisible()
+                                    buttonRefresh.setOnClickListener{
+                                        onlyTracksListVisible()
+                                        onRestart()
+                                    }
+                                }
+                            })
+                        }
+                    }
+            false
+                }
             }
 
             override fun afterTextChanged(s: Editable?) {
-                // empty
+            // empty
             }
         }
         inputEditText.addTextChangedListener(textWatcher)
-
-
-
-        val rvTracks = findViewById<RecyclerView>(R.id.rvTracks)
-        rvTracks.adapter = tracksAdapter
-
+        tracksList.layoutManager = LinearLayoutManager(this)
+        tracksList.adapter = TracksAdapter(tracks)
     }
 
     private fun clearButtonVisibility(s: CharSequence?): Int {
@@ -87,7 +164,24 @@ class SearchActivity : AppCompatActivity() {
         super.onRestoreInstanceState(savedInstanceState)
         valueTextInput = savedInstanceState.getString(TEXT_INPUT, DEFAULT_TEXT_INPUT)
     }
-
-
-
+    private fun allViewsVisibleGone() {
+        tracksList.visibility = View.GONE
+        linearLayoutSomethingWentWrong.visibility = View.GONE
+        linearLayoutNothingFound.visibility = View.GONE
+    }
+    private fun onlyTracksListVisible() {
+        tracksList.visibility = View.VISIBLE
+        linearLayoutSomethingWentWrong.visibility = View.GONE
+        linearLayoutNothingFound.visibility = View.GONE
+    }
+    private fun onlyLinearLayoutNothingFoundVisible() {
+        tracksList.visibility = View.GONE
+        linearLayoutSomethingWentWrong.visibility = View.GONE
+        linearLayoutNothingFound.visibility = View.VISIBLE
+    }
+    private fun onlyLinearLayoutSomethingWentWrongVisible() {
+        tracksList.visibility = View.GONE
+        linearLayoutSomethingWentWrong.visibility = View.VISIBLE
+        linearLayoutNothingFound.visibility = View.GONE
+    }
 }
