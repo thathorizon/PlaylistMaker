@@ -15,13 +15,13 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
 
 
 class SearchActivity : AppCompatActivity() {
@@ -40,13 +40,12 @@ class SearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
-
         val retrofit = Retrofit.Builder()
             .baseUrl(itunesBaseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-         val iTunesAPISearchService = retrofit.create(ITunesAPI::class.java)
+        val iTunesAPISearchService = retrofit.create(ITunesAPI::class.java)
 
 
         linearLayoutNothingFound = findViewById(R.id.nothingFound)
@@ -70,7 +69,6 @@ class SearchActivity : AppCompatActivity() {
         clearButton.setOnClickListener {
             inputEditText.setText("")
             inputEditText.hideKeyboard()
-            tracksList.removeAllViews()
             adapter.notifyDataSetChanged()
             allViewsVisibleGone()
         }
@@ -85,9 +83,22 @@ class SearchActivity : AppCompatActivity() {
                 if (savedInstanceState != null) {
                     valueTextInput = savedInstanceState.getString(TEXT_INPUT, DEFAULT_TEXT_INPUT)
                 }
-
                 inputEditText.setOnEditorActionListener { _, actionId, _ ->
                     if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    searchSong()
+                    }
+                    false
+                }
+                buttonRefresh.setOnClickListener {
+                searchSong()
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                // empty
+            }
+
+            fun searchSong(){
                         if (inputEditText.text.isNotEmpty()) {
                             iTunesAPISearchService.search(inputEditText.text.toString()).enqueue(object : Callback<TracksResponse> {
                                 override fun onResponse(
@@ -98,7 +109,6 @@ class SearchActivity : AppCompatActivity() {
                                         if (response.body()?.results?.isNotEmpty() == true) {
                                             onlyTracksListVisible()
                                             tracks.clear()
-                                            tracksList.removeAllViews()
                                             tracks.addAll(response.body()?.results!!)
                                             adapter.notifyDataSetChanged()
                                         }
@@ -107,34 +117,16 @@ class SearchActivity : AppCompatActivity() {
                                         }
                                     } else {
                                         onlyLinearLayoutSomethingWentWrongVisible()
-                                        buttonRefresh.setOnClickListener{
-                                            onlyTracksListVisible()
-                                            onRestart()
-                                        }
                                     }
                                 }
-
                                 override fun onFailure(call: Call<TracksResponse>, t: Throwable) {
                                     onlyLinearLayoutSomethingWentWrongVisible()
-                                    buttonRefresh.setOnClickListener{
-                                        onlyTracksListVisible()
-                                        onRestart()
-                                    }
                                 }
                             })
                         }
-                    }
-            false
-                }
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-            // empty
             }
         }
         inputEditText.addTextChangedListener(textWatcher)
-        tracksList.layoutManager = LinearLayoutManager(this)
-        tracksList.adapter = TracksAdapter(tracks)
     }
 
     private fun clearButtonVisibility(s: CharSequence?): Int {

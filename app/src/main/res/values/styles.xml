@@ -99,7 +99,7 @@
         <item name="android:fontFamily">@font/ys_display_regular</item>
         <item name="android:textSize">@dimen/little_textsize</item>
         <item name="android:textFontWeight">400</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/black2</item>
         <item name="android:importantForAutofill">no</item>
     </style>
 
